@@ -1,0 +1,73 @@
+{% load static %}
+{% load auth_extras %}
+<div class="sidebar-wrapper">
+    <div class="user">
+      <div class="photo">
+        <img src="{% static 'dashboard/assets/img/faces/ayo-ogunseinde-2.jpg' %}" />
+      </div>
+      <div class="info">
+        <a data-toggle="collapse" href="#collapseExample" class="collapsed">
+          <span>
+            {{ user.username }}
+            <b class="caret"></b>
+          </span>
+        </a>
+        <div class="clearfix"></div>
+        <div class="collapse" id="collapseExample">
+          <ul class="nav">
+            <li>
+              <a href="{% url 'edit_profile' user_id=user.id %}">
+                <span class="sidebar-mini-icon"><i class="nc-icon nc-single-02"></i></span>
+                <span class="sidebar-normal">Edit Profile</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="{% url 'user_list' %}">
+                <span class="sidebar-mini-icon"><i class="nc-icon nc-circle-10"></i></span>
+                <span class="sidebar-normal">List Pengguna</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="{% url 'akun_logout' %}">
+                <span class="sidebar-mini-icon"><i class="nc-icon nc-button-power"></i></span>
+                <span class="sidebar-normal">Log Out</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <ul class="nav">
+      <li class="active">
+        <a href="{% url 'dashboard' %}">
+          <i class="nc-icon nc-bank"></i>
+          <p>Dashboard</p>
+        </a>
+      </li>
+      <li>
+        <a href="{% url 'artikel_list' %}">
+          <i class="nc-icon nc-chart-bar-32"></i>
+          <p>Artikel</p>
+        </a>
+      </li>
+      
+      {% if user|has_group:'Operator' %} 
+        <li>
+          <a href="{% url 'kategori_list' %}">
+            <i class="nc-icon nc-box"></i>
+            <p>Kategori</p>
+          </a>
+        </li>
+      {% endif %}
+      
+      <li>
+        <a href="{% url 'user_profile' user_id=user.id %}">
+          <i class="nc-icon nc-calendar-60"></i>
+          <p>Pengguna</p>
+        </a>
+      </li>
+      
+    </ul>
+</div>

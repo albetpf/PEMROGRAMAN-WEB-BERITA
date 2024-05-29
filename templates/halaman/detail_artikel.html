@@ -1,0 +1,142 @@
+{% extends "halaman/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="page-header header-filter header-small" data-parallax="true" style="background-image: url('{% static 'halaman/assets/img/bg10.jpg' %}');"></div>
+<div class="main main-raised" style="margin-top: -400px;">
+    <div class="container">
+        <div class="section section-text">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    
+                    {% if artikel.thumbnail %}
+                    <img style ="width: 100%;" src="{{ artikel.thumbnail.url }}" alt="" />
+                    {% else %}
+                    <img src="{% static 'halaman/assets/img/image_placeholder.jpg'%}" alt="" />
+                    {% endif %}
+                        
+                    <h3 class="title">{{ artikel.judul }}</h3>
+                    <p>{{ artikel.isi }}</p>
+
+                    <blockquote>
+                        {% comment %} <p>“And thank you for turning my personal jean jacket into a couture piece.”</p> {% endcomment %}
+                        <small>Created by : {{ artikel.author }}</small>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+
+        <div class="section section-blog-info">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="blog-tags mb-5">
+                                Kategori :
+                                <span class="label label-primary">{{ artikel.kategori }}</span>
+                                {% comment %} <span class="label label-primary">Stories</span>
+                                <span class="label label-primary">Castle</span> {% endcomment %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr />
+                </div>
+            </div>
+        </div>
+
+        {% comment %} <div class="section section-comments">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="media-area">
+                        <h3 class="title text-center">3 Comments</h3>
+                        <div class="media">
+                            <a class="pull-left" href="#pablo">
+                                <div class="avatar">
+                                    <img class="media-object" src="../assets/img/faces/card-profile4-square.jpg" alt="..."/>
+                                </div>
+                            </a>
+                            <div class="media-body">
+                                <h4 class="media-heading">Tina Andrew <small>&middot; 7 minutes ago</small></h4>
+                                <h6 class="text-muted"></h6>
+
+                                <p>Chance too good. God level bars. I'm so proud of @LifeOfDesiigner #1 song in the country. Panda! Don't be scared of the truth because we need to restart the human foundation in truth I stand with the most humility. We are so blessed!</p>
+
+                                <div class="media-footer">
+                                    <a href="#pablo" class="btn btn-primary btn-simple pull-right" rel="tooltip" title="Reply to Comment">
+                                        <i class="material-icons">reply</i> Reply
+                                    </a>
+                                    <a href="#pablo" class="btn btn-danger btn-simple pull-right">
+                                        <i class="material-icons">favorite</i> 243
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="media">
+                          <a class="pull-left" href="#pablo">
+                              <div class="avatar">
+                                 <img class="media-object" alt="Tim Picture" src="../assets/img/faces/card-profile1-square.jpg">
+                              </div>
+                          </a>
+                          <div class="media-body">
+                             <h4 class="media-heading">John Camber <small>&middot; Yesterday</small></h4>
+
+                             <p>Hello guys, nice to have you on the platform! There will be a lot of great stuff coming soon. We will keep you posted for the latest news.</p>
+                             <p> Don't forget, You're Awesome!</p>
+
+                            <div class="media-footer">
+                                <a href="#pablo" class="btn btn-primary btn-simple pull-right" rel="tooltip" title="Reply to Comment">
+                                    <i class="material-icons">reply</i> Reply
+                                </a>
+                                <a href="#pablo" class="btn btn-default btn-simple pull-right">
+                                    <i class="material-icons">favorite</i> 25
+                                </a>
+                             </div>
+                             <div class="media">
+                                  <a class="pull-left" href="#pablo">
+                                        <div class="avatar">
+                                            <img class="media-object" alt="64x64" src="../assets/img/faces/card-profile4-square.jpg">
+                                        </div>
+                                  </a>
+                                  <div class="media-body">
+                                        <h4 class="media-heading">Tina Andrew <small>&middot; 12 Hours Ago</small></h4>
+
+                                        <p>Hello guys, nice to have you on the platform! There will be a lot of great stuff coming soon. We will keep you posted for the latest news.</p>
+                                        <p> Don't forget, You're Awesome!</p>
+
+                                        <div class="media-footer">
+                                            <a href="#pablo" class="btn btn-primary btn-simple pull-right" rel="tooltip" title="Reply to Comment">
+                                                <i class="material-icons">reply</i> Reply
+                                            </a>
+                                            <a href="#pablo" class="btn btn-default btn-simple pull-right">
+                                                <i class="material-icons">favorite</i> 2
+                                            </a>
+                                        </div>
+                                  </div>
+                              </div>
+                          </div>
+                        </div>
+
+                    </div>
+                      <h3 class="title text-center">Post your comment</h3>
+                      <div class="media media-post">
+                          <a class="pull-left author" href="#pablo">
+                              <div class="avatar">
+                                    <img class="media-object" alt="64x64" src="../assets/img/faces/card-profile6-square.jpg">
+                              </div>
+                          </a>
+                          <div class="media-body">
+                                <textarea class="form-control" placeholder="Write some nice stuff or nothing..." rows="6"></textarea>
+                                <div class="media-footer">
+                                     <a href="#pablo" class="btn btn-primary btn-round btn-wd pull-right">Post Comment</a>
+                                </div>
+                          </div>
+                      </div> <!-- end media-post -->
+                </div>
+            </div>
+        </div> {% endcomment %}
+
+    </div>
+</div>
+{% endblock content %}
